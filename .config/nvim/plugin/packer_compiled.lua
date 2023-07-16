@@ -74,15 +74,15 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["carbonfox.nvim"] = {
-    loaded = true,
-    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/carbonfox.nvim",
-    url = "https://github.com/EdenEast/carbonfox.nvim"
-  },
   ["coc.nvim"] = {
     loaded = true,
     path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
+  },
+  ["deoplete-jedi"] = {
+    loaded = true,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/deoplete-jedi",
+    url = "https://github.com/zchee/deoplete-jedi"
   },
   fzf = {
     loaded = true,
@@ -94,15 +94,47 @@ _G.packer_plugins = {
     path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   nerdtree = {
     loaded = true,
     path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/preservim/nerdtree"
   },
+  ["nvim-jdtls"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/opt/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
+  sonokai = {
+    loaded = true,
+    path = "/home/alexandrelegoff/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
   },
   ["vim-cpp-modern"] = {
     loaded = true,
@@ -112,6 +144,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

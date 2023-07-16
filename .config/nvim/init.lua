@@ -1,5 +1,7 @@
 require('plugins')
 require('lsp')
+require('mason').setup()
+require("mason-lspconfig").setup()
 
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -7,19 +9,10 @@ vim.o.smarttab = true
 vim.wo.relativenumber = true
 vim.wo.number = true
 
-vim.cmd("colorscheme nightfox")
+-- setup must be called before loading
+vim.cmd("colorscheme sonokai")
 
-require('nightfox').setup({
-	options = {
-		styles = {
-			comments = "italic",
-			keywords = "bold",
-			types = "italic,bold",
-		}
-	}
-})
-
-vim.api.nvim_set_keymap("n", "<C-b>", ":Buffers<CR>", { noremap = true } )
+vim.api.nvim_set_keymap("n", "<C-l>", ":Buffers<CR>", { noremap = true } )
 vim.api.nvim_set_keymap("n", "<C-p>", ":Files<CR>", { noremap = true } )
 vim.api.nvim_set_keymap("n", "<C-f>", ":Rg ", { noremap = true } )
 

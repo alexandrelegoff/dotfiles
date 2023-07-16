@@ -7,12 +7,28 @@ return require('packer').startup(function(use)
 
 	use 'junegunn/fzf.vim'
 
-	use 'neovim/nvim-lspconfig'
-
 	use 'preservim/nerdtree'
 
 	use 'bfrg/vim-cpp-modern'
 
-	use 'EdenEast/nightfox.nvim'
+	use 'nyoom-engineering/oxocarbon.nvim'
+
+	use 'zchee/deoplete-jedi'
+
+	use 'sainnhe/sonokai'
+
+	use({
+    	"iamcco/markdown-preview.nvim",
+    	run = function() vim.fn["mkdp#util#install"]() end,
+	})
+
+	use { "mfussenegger/nvim-jdtls", ft = { "java" } }
+
+	use {
+    	"williamboman/mason.nvim",
+    	"williamboman/mason-lspconfig.nvim",
+    	"neovim/nvim-lspconfig",
+	}
+
 end)
 
