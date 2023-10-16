@@ -11,7 +11,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-alias vv=/usr/bin/nvim
+alias vv=~/.local/nvim-linux64/bin/nvim
 
 alias srcz="source ~/.zshrc"
 
@@ -111,5 +111,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-autoload -U promptinit; promptinit
-prompt pure

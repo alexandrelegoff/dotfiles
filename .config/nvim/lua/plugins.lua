@@ -17,10 +17,17 @@ return require('packer').startup(function(use)
 
 	use 'sainnhe/sonokai'
 
+	use 'github/copilot.vim'
+ 
+	use "nvim-lua/plenary.nvim"
+	use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
+
+	use 'Shatur/neovim-tasks'
+
 	use({
     	"iamcco/markdown-preview.nvim",
     	run = function() vim.fn["mkdp#util#install"]() end,
-	})
+	}) 
 
 	use { "mfussenegger/nvim-jdtls", ft = { "java" } }
 

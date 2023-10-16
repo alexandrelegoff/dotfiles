@@ -1,4 +1,0 @@
-{
-  "clangd.path": "/usr/bin/clangd-16",
-  "clangd.fallbackFlags": ["-std=c++23"]
-}
